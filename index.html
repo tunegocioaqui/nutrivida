@@ -592,29 +592,179 @@
     .fade-up.delay-4 { transition-delay: .4s; }
     .fade-up.delay-5 { transition-delay: .5s; }
 
-    /* ─── RESPONSIVE ────────────────────────────────────────────── */
+    /* ─── TOUCH IMPROVEMENTS (all sizes) ───────────────────────── */
+    .cal-day, .time-slot, .btn, .submit-btn,
+    .social-btn, .nav-cta, .hamburger {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    /* ─── TABLET  960px ─────────────────────────────────────────── */
     @media (max-width: 960px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+      .nav-links  { display: none; }
+      .hamburger  { display: flex; }
+
       .about-grid,
       .booking-grid,
-      .location-grid { grid-template-columns: 1fr; gap: 36px; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .hero-stats { display: none; }
+      .location-grid { grid-template-columns: 1fr; gap: 32px; }
+
       .about-photo-wrap { order: -1; }
-      .about-photo { width: 240px; height: 290px; }
+      .about-photo { width: 220px; height: 265px; }
+
+      .services-grid     { grid-template-columns: repeat(2,1fr); }
+      .why-grid          { grid-template-columns: repeat(2,1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid       { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+      /* Hero stats: hidden on tablet/mobile */
+      .hero-stats  { display: none; }
+      .scroll-hint { bottom: 28px; }
+
+      /* Map height reduced on tablet */
+      .map-embed { height: 300px; }
     }
-    @media (max-width: 580px) {
-      .section { padding: 64px 0; }
-      .services-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .time-slots-grid { grid-template-columns: repeat(3, 1fr); }
-      .hero-content h1 { font-size: 2rem; }
+
+    /* ─── MOBILE  640px ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      /* ── Layout ── */
+      .container  { padding: 0 18px; }
+      .section    { padding: 56px 0; }
+      .section-header { margin-bottom: 36px; }
+
+      h2.section-title { font-size: 1.5rem; }
+      p.section-sub    { font-size: .9rem; }
+
+      /* ── Navbar ── */
+      #navbar { padding: 0 18px; }
+      .nav-inner { height: 60px; }
+      .nav-logo  { font-size: 1rem; }
+      .nav-logo-icon { width: 32px; height: 32px; border-radius: 8px; }
+      .hamburger span { width: 22px; }
+      .mobile-menu { top: 60px; }
+      .mobile-menu a { padding: 16px 20px; font-size: .95rem; }
+
+      /* ── Hero ── */
+      #hero { min-height: 100svh; min-height: 100vh; align-items: flex-end; padding-bottom: 64px; }
+      .hero-content {
+        text-align: center;
+        padding-top: 80px !important;
+        padding-bottom: 24px;
+        max-width: 100%;
+      }
+      .hero-content .badge { font-size: .72rem; }
+      .hero-content h1 {
+        font-size: clamp(1.75rem, 8vw, 2.2rem);
+        margin-bottom: 14px;
+      }
+      .hero-content p {
+        font-size: .88rem;
+        margin-bottom: 28px;
+        max-width: 100%;
+      }
+      .hero-btns {
+        flex-direction: column; align-items: center; gap: 12px;
+      }
+      .hero-btns .btn {
+        width: 100%; max-width: 320px;
+        justify-content: center; padding: 14px 24px;
+      }
+      .scroll-hint { display: none; }
+      .hero-blob   { display: none; }
+
+      /* mini stats strip on mobile */
+      .hero-stats {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        position: relative; bottom: auto; left: auto;
+        transform: none; width: 100%; max-width: 100%;
+        border-radius: 14px; padding: 16px 20px;
+        margin: 20px 0 0; gap: 0;
+      }
+      .hero-stat { padding: 8px 0; }
+      .hero-stat + .hero-stat { border-left: none; }
+      .hero-stat:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,.2); }
+      .hero-stat:nth-child(1),
+      .hero-stat:nth-child(2)    { border-bottom: 1px solid rgba(255,255,255,.2); }
+      .hero-stat strong { font-size: 1.25rem; }
+      .hero-stat span   { font-size: .72rem; }
+
+      /* ── About ── */
+      #about .about-grid   { gap: 24px; }
+      .about-photo { width: 180px; height: 218px; border-width: 4px; }
+      .about-chips { gap: 8px; }
+      .chip { font-size: .78rem; padding: 6px 12px; }
+      .about-text .btn { width: 100%; justify-content: center; }
+
+      /* ── Services ── */
+      .services-grid { grid-template-columns: 1fr; gap: 14px; }
+      .service-card  { padding: 24px 20px; }
+      .service-icon  { width: 46px; height: 46px; border-radius: 12px; margin-bottom: 14px; }
+      .service-icon svg { width: 22px; height: 22px; }
+      .service-card h3 { font-size: .95rem; }
+      .service-card p  { font-size: .83rem; }
+
+      /* ── Why Choose Us ── */
+      #why { padding: 52px 0 !important; }
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .why-icon { width: 50px; height: 50px; border-radius: 14px; margin-bottom: 12px; }
+      .why-icon svg { width: 24px; height: 24px; }
+      .why-item h3 { font-size: .85rem; }
+      .why-item p  { font-size: .78rem; }
+
+      /* ── Booking ── */
+      .booking-grid { gap: 20px; }
+      .calendar-wrap      { padding: 20px 16px; }
+      .booking-form-wrap  { padding: 20px 16px; }
+      .cal-header h3 { font-size: .92rem; }
+      .cal-nav button { width: 36px; height: 36px; }
+
+      /* bigger tap targets for calendar days */
+      .cal-day {
+        font-size: .78rem; border-radius: 6px;
+        min-height: 36px;
+      }
+      .cal-days-header span { font-size: .68rem; }
+
+      .time-slots-grid { grid-template-columns: repeat(3,1fr); gap: 8px; }
+      .time-slot {
+        padding: 10px 4px; font-size: .78rem; border-radius: 8px;
+        min-height: 40px; display: flex; align-items: center; justify-content: center;
+      }
+
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-group { margin-bottom: 14px; }
+      .form-control { font-size: .9rem; padding: 12px 14px; }
+      .booking-form-wrap h3 { font-size: 1rem; }
+      .selected-info { font-size: .8rem; padding: 10px 14px; }
+
+      /* ── Testimonials ── */
+      .testimonial-card { padding: 22px 18px; }
+      .testimonial-card p { font-size: .85rem; }
+      .testimonial-card::before { font-size: 4rem; top: 8px; right: 14px; }
+
+      /* ── Contact ── */
+      .map-embed { height: 240px; }
+      .contact-card { padding: 22px 18px; }
+      .contact-item { gap: 12px; padding: 12px 0; }
+      .contact-icon { width: 38px; height: 38px; border-radius: 10px; }
+      .contact-icon svg { width: 17px; height: 17px; }
+      .contact-item strong { font-size: .78rem; }
+      .contact-item a, .contact-item span { font-size: .83rem; }
+
+      /* ── Footer ── */
+      #footer { padding: 48px 0 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 32px; }
+      .footer-col h4 { font-size: .82rem; margin-bottom: 12px; }
+      .footer-col ul li { margin-bottom: 8px; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 6px; }
+    }
+
+    /* ─── VERY SMALL  380px ─────────────────────────────────────── */
+    @media (max-width: 380px) {
+      .hero-content h1 { font-size: 1.6rem; }
+      .why-grid { grid-template-columns: 1fr; }
+      .time-slots-grid { grid-template-columns: repeat(3,1fr); }
+      .cal-day { font-size: .72rem; min-height: 32px; }
     }
   </style>
 </head>
